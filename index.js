@@ -11,6 +11,14 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/login.html', function(req, res) {
+    res.sendFile(__dirname + '/login.html');
+});
+
+app.get('/signup.html', function(req, res) {
+    res.sendFile(__dirname + '/signup.html');
+});
+
 var githubOAuth = require('github-oauth')({
     githubClient: config.GITHUB_KEY,
     githubSecret: config.GITHUB_SECRET,
