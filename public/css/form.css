@@ -4,8 +4,8 @@
 }
 
 body {
-    background: #007bff;
-    background: linear-gradient(to right, #0062E6, #33AEFF);
+    background-image: url('https://images.unsplash.com/photo-1529850058487-4ce6aa397340?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80');
+    background-size: cover;
 }
 
 .card-signin {
@@ -13,6 +13,7 @@ body {
     border-radius: 1rem;
     box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    opacity: 0.95;
 }
 
 .card-signin .card-title {
@@ -24,7 +25,8 @@ body {
 .card-signin .card-img-left {
     width: 45%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('https://source.unsplash.com/WEQbe2jBg40/414x512');
+    background: scroll center url('https://images.unsplash.com/photo-1502318217862-aa4e294ba657?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=658&q=80');
+    opacity: 1;
     background-size: cover;
 }
 
