@@ -5,18 +5,32 @@ var config = require("./config.js");
 const host = '0.0.0.0';
 const port = process.env.PORT || 9292;
 
+var io = require('socket.io')(http);
+var MongoClient = require('mongodb').MongoClient;
+
+var MONGODB_URI = 'mongodb://admin:dfgh8520@ds249311.mlab.com:49311/sockettest';
+
+
 app.use(express.static('public')); //靜態檔案放置區
 
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/login.html', function(req, res) {
+app.get('/login', function(req, res) {
     res.sendFile(__dirname + '/login.html');
 });
 
-app.get('/signup.html', function(req, res) {
+app.get('/signup', function(req, res) {
     res.sendFile(__dirname + '/signup.html');
+});
+
+app.get('/chat', function(req, res) {
+    res.sendFile(__dirname + '/chat.html');
+});
+
+app.get('/chatall', function(req, res) {
+    res.sendFile(__dirname + '/chatall.html');
 });
 
 var githubOAuth = require('github-oauth')({
@@ -36,15 +50,6 @@ app.get("/auth/github/callback", function(req, res) {
     console.log("received callback");
     return githubOAuth.callback(req, res);
 });
-
-githubOAuth.on('error', function(err) {
-    console.error('there was a login error', err)
-})
-
-githubOAuth.on('token', function(token, serverResponse) {
-    serverResponse.end(JSON.stringify(token))
-})
-
 
 var passport = require('passport'),
     FacebookStrategy = require('passport-facebook').Strategy;
@@ -71,6 +76,74 @@ app.get('/auth/facebook/callback',
         successRedirect: '/',
         failureRedirect: '/login'
     }));
+
+
+
+usocket = [];
+user = [];
+// chatroom
+io.on('connection', (socket) => { //(socket)=>  等於 function(socket){}
+    //username=客戶端傳來用戶輸入的name
+    socket.on('new user', (username) => {
+        if (!(username in usocket)) { //username指向usocket
+            socket.username = username; //給予每個username一個socket
+            usocket[username] = socket;
+            //console.log(socket);
+            user.push(username); //在陣列尾新增元素 ，並返回新的長度
+            socket.emit('login', user);
+            socket.broadcast.emit('user joined', username, (user.length - 1));
+            console.log(user);
+
+        }
+    })
+
+    /*
+    res	=	var req = {
+    			'addresser':name,
+    			'recipient':recipient,
+    			'type':'plain',
+    			'body':val
+    		}
+    */
+
+    //私人
+    socket.on('send private message', function(res) {
+        console.log(res);
+
+        //msg to db
+        MongoClient.connect(MONGODB_URI, function(err, db) {
+            if (err) throw err;
+            var collection = db.collection('dbtest');
+            var req = {
+                'body': res
+            };
+
+            collection.insert(req);
+        });
+
+        if (res.recipient in usocket) {
+            usocket[res.recipient].emit('receive private message', res);
+        }
+    });
+
+    //一多對
+    socket.on('chat room', function(name, valAll) {
+        console.log(name, valAll);
+        io.emit('chat room', name, valAll);
+    });
+
+    socket.on('disconnect', function() {
+        //移除
+        if (socket.username in usocket) {
+            delete(usocket[socket.username]);
+            user.splice(user.indexOf(socket.username), 1);
+        }
+        console.log(user);
+        socket.broadcast.emit('user left', socket.username)
+    })
+
+});
+
 
 
 http.listen(port, host, function() {
