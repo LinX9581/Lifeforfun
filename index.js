@@ -17,15 +17,15 @@ app.get('/', function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/login', function(req, res) {
+app.get('/login.html', function(req, res) {
     res.sendFile(__dirname + '/login.html');
 });
 
-app.get('/signup', function(req, res) {
+app.get('/signup.html', function(req, res) {
     res.sendFile(__dirname + '/signup.html');
 });
 
-app.get('/chat', function(req, res) {
+app.get('/chat.html', function(req, res) {
     res.sendFile(__dirname + '/chat.html');
 });
 
