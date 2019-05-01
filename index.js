@@ -33,6 +33,10 @@ app.get('/chatall', function(req, res) {
     res.sendFile(__dirname + '/chatall.html');
 });
 
+app.get('/development', function(req, res) {
+    res.sendFile(__dirname + '/development.html');
+});
+
 var githubOAuth = require('github-oauth')({
     githubClient: config.GITHUB_KEY,
     githubSecret: config.GITHUB_SECRET,
