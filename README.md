@@ -1,15 +1,15 @@
 # Lifeforfun
-記錄著你周遭美好事
-後續會新增用戶之間積分排行系統
+記錄著你周遭美好事  
+後續會新增用戶之間積分排行系統  
+
+介面往後都還會大改，包括LOGO、Map圖片、積分表等等  
+功能也偏向預覽性質  
+導覽頁不像導覽頁  
+流量問題檔案讀不到等等BUG Q  
+持續修正中 暫不提供預覽  
 
 ## QUICK START  
-npm i && npm start  
-
-## Preview
-Deploy on heroku  
-You can check out [live preview](https://lifeforfun.herokuapp.com/)  
-Heroku免費流量 部分檔案會讀不到Q  
-介面都還在開發中 包括LOGO、導覽影音圖片等。  
+npm i && npm start   
 
 # 整體架構  
 ## 導覽頁  
