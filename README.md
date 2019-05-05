@@ -1,7 +1,16 @@
 # Lifeforfun
-記錄著你周遭美好事  
-後續會新增用戶之間積分排行系統  
+1.從文山區慢慢向外擴展  
+2.依食衣住行等分類，再從時間、地點排序  
+3.不定期推撥自己和其他使用者的生活記錄  
+4.每項生活記錄都有一定成就點數  
+5.讓用戶之間在不同領域的積分排行  
+6.也讓用戶間可以選擇性分享私人資訊 Ex.心跳、步數、電池資訊...  
+7.共同行事曆...  
+...  
+...  
+等等一堆可能寫不完也寫不出來的功能。  
 
+# Preview
 介面往後都還會大改，包括LOGO、Map圖片、積分表等等  
 功能也偏向預覽性質  
 導覽頁不像導覽頁  
@@ -25,20 +34,20 @@ GoogleAnalytics 目前平均日流量3 Q
 ## 會員頁
 主要實作
 查看自己紀錄、其他使用者紀錄、排行等  
-React => [基本架構](https://github.com/LinX9581/React-Webpack4-babel7)  
+React => [基本環境架構](https://github.com/LinX9581/React-Webpack4-babel7)  
 React-Router-Dom Fontend Router  
 Nodejs/Express Backend Router  
 MongoDB  
 FB/Google/Github/Youtube API  
 GoogleCloud  
 
-Cloud Services Database => [基本環境](https://github.com/LinX9581/Note)  
+Cloud Services Database => [基本環境架構](https://github.com/LinX9581/Note)  
 ...  
 ...  
 ## Android/IOS
 累計自己成就、瀏覽其他使用者紀錄、排行等  
 Expo 跨平台Android/IOS  
-Nativebase => [基本架構](https://github.com/LinX9581/NativeBaseInit)  
+Nativebase => [基本環境架構](https://github.com/LinX9581/NativeBaseInit)  
 React-native-router-flux Router  
 ...  
 ...  
