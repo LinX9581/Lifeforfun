@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "dependencies": {
+        "ejs": "^2.7.1",
         "express": "^4.15.5",
         "github-oauth": "^0.2.2",
         "mongodb": "^2.2.35",

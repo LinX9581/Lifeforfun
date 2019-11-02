@@ -10,6 +10,8 @@ var MongoClient = require('mongodb').MongoClient;
 
 var MONGODB_URI = 'mongodb://admin:dfgh8520@ds249311.mlab.com:49311/sockettest';
 
+app.set("views", "views/");
+app.set("view engine", "ejs");
 
 app.use(express.static('public')); //靜態檔案放置區
 
@@ -36,6 +38,12 @@ app.get('/chatall', function(req, res) {
 app.get('/development', function(req, res) {
     res.sendFile(__dirname + '/development.html');
 });
+
+app.get('/privacy', function(req, res) {
+    res.sendFile(__dirname + '/privacy.html');
+});
+
+
 
 var githubOAuth = require('github-oauth')({
     githubClient: config.GITHUB_KEY,
