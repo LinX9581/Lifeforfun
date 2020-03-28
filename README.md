@@ -1,21 +1,7 @@
 # Lifeforfun
-1.從文山區慢慢向外擴展  
-2.依食衣住行等分類，再從時間、地點排序  
-3.不定期推撥自己和其他使用者的生活記錄  
-4.每項生活記錄都有一定成就點數  
-5.讓用戶之間在不同領域的積分排行  
-6.也讓用戶間可以選擇性分享私人資訊 Ex.心跳、步數、電池資訊...  
-7.共同行事曆...  
-...  
-...  
-等等一堆可能寫不完也寫不出來的功能。  
 
 # Preview
-介面往後都還會大改，包括LOGO、Map圖片、積分表等等  
-功能也偏向預覽性質  
-導覽頁不像導覽頁  
-流量問題檔案讀不到等等BUG Q  
-持續修正中 暫不提供預覽  
+被棄用的網頁
 
 ## QUICK START  
 npm i && npm start   
@@ -29,7 +15,6 @@ Nodejs/Server、Express/Router (index.js)
 Firebase Login Logout  
 FB/Google/Github/Youtube API  
 Heroku/GoogleCloud  
-GoogleAnalytics 目前平均日流量3 Q  
 
 ## 會員頁
 主要實作
