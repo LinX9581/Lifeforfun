@@ -10,7 +10,7 @@
         "mongodb": "^2.2.35",
         "passport": "^0.4.0",
         "passport-facebook": "^3.0.0",
-        "socket.io": "^1.7.4"
+        "socket.io": "^2.4.0"
     },
     "devDependencies": {},
     "scripts": {
